@@ -1,26 +1,25 @@
 # fu-loading
+Loading component based on React.
 
-### 概述
-Loading Component based on React.
-
-基于 React 的 Loading 组件。
-
-# 目录结构
+# Include
 ```
 fu-loading/
 ├── README.md
-├── dist          # 构建目录
-├── docs          # 文档
-├── examples      # 示例
-├── gulpfile.js   # 构建配置文件
+├── dist
+├── docs
+├── examples
+├── gulpfile.js
 ├── LICENSE
-├── package.json  # NPM 依赖包文件
-└── src           # 源文件
+├── package.json
+└── src
 ```
 
-# 主题和示例
+# TODO
+Add more themes and LoadingGroup component.
 
-### 主题
+# Theme && Document
+
+### Themes
 - circle
   - &
   - &-fadeout
@@ -31,12 +30,25 @@ fu-loading/
   - &
   - &-series
 
-### 属性
-- transparent  `boolen`
-  - `true`  透明/白色
-  - `false`  非透明/实色
+### Props
+- `transparent`  `boolen`
+  - `true`  transparent/white
+  - `false`  nontransparent/colored
 
-### 示例
+### Examples
+```
+<!-- container -->
+<div id="circle"></div>
+
+// Loading component of circle theme rendered
+ReactDOM.render(
+  <Loading theme="circle" />,
+  document.getElementById('circle')
+);
+
+```
+
+### Demo
 ![ball-bounce](./docs/img/ball-bounce.gif)
 ![circle](./docs/img/circle.gif)
 ![circle-fadeout](./docs/img/circle-fadeout.gif)
