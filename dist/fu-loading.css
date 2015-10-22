@@ -8,7 +8,7 @@
     text-align: center;
     box-sizing: border-box; }
   .loading .circle {
-    border: 5px solid #1bbc9b;
+    border: 6px solid #1bbc9b;
     border-right-color: transparent;
     border-radius: 50%;
     -webkit-animation: circleWhirl 1.4s infinite linear;
@@ -33,24 +33,47 @@
     .loading .circle-zoomfade > .item-1 {
       -webkit-animation-delay: -1s;
               animation-delay: -1s; }
-  .loading .ball-bounce > span {
+  .loading .ball-stream > span {
     display: inline-block;
     margin: 23px 3px;
     width: 14px;
     height: 14px;
     border-radius: 50%;
     background-color: #1bbc9b;
-    -webkit-animation: ballBounce 1.4s infinite ease-in-out;
-            animation: ballBounce 1.4s infinite ease-in-out; }
-  .loading .ball-bounce .item-0 {
+    -webkit-animation: ballstream 1.4s infinite ease-in-out;
+            animation: ballstream 1.4s infinite ease-in-out; }
+  .loading .ball-stream .item-0 {
     -webkit-animation-delay: -0.32s;
             animation-delay: -0.32s; }
-  .loading .ball-bounce .item-1 {
+  .loading .ball-stream .item-1 {
     -webkit-animation-delay: -0.16s;
             animation-delay: -0.16s; }
-  .loading .ball-bounce .item-2 {
+  .loading .ball-stream .item-2 {
     -webkit-animation-delay: 0s;
             animation-delay: 0s; }
+  .loading .ball-bounce > span {
+    position: absolute;
+    top: 11.25px;
+    left: 11.25px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    -webkit-animation: ballBounce 1.6s infinite ease-in-out;
+            animation: ballBounce 1.6s infinite ease-in-out; }
+  .loading .ball-bounce > .item-0 {
+    background-color: #1bbc9b; }
+  .loading .ball-bounce > .item-1 {
+    background-color: #E36F76;
+    -webkit-animation-delay: -0.4s;
+            animation-delay: -0.4s; }
+  .loading .ball-bounce > .item-2 {
+    background-color: #09C4C7;
+    -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s; }
+  .loading .ball-bounce > .item-3 {
+    background-color: #FB8E14;
+    -webkit-animation-delay: -1.2s;
+            animation-delay: -1.2s; }
   .loading .rect {
     background-color: #1bbc9b;
     -webkit-animation: rectRotate 1.4s infinite ease-in-out;
@@ -78,6 +101,25 @@
     .loading .rect-series .item-4 {
       -webkit-animation-delay: -0.6s;
               animation-delay: -0.6s; }
+    .loading .rect-stream {
+      padding: 34% 0; }
+      .loading .rect-stream > span {
+        display: inline-block;
+        margin: 0 4px;
+        height: 100%;
+        width: 8px;
+        background-color: #1bbc9b;
+        -webkit-animation: rectStream 1.4s infinite ease-in-out;
+                animation: rectStream 1.4s infinite ease-in-out; }
+      .loading .rect-stream .item-0 {
+        -webkit-animation-delay: -0.9s;
+                animation-delay: -0.9s; }
+      .loading .rect-stream .item-1 {
+        -webkit-animation-delay: -0.6s;
+                animation-delay: -0.6s; }
+      .loading .rect-stream .item-2 {
+        -webkit-animation-delay: -0.3s;
+                animation-delay: -0.3s; }
   .loading.trans .circle {
     border-color: rgba(255, 255, 255, 0.2);
     border-right-color: rgba(255, 255, 255, 0.95); }
@@ -85,11 +127,15 @@
       background-color: rgba(255, 255, 255, 0.95); }
     .loading.trans .circle-zoomfade > span {
       background-color: rgba(255, 255, 255, 0.95); }
+  .loading.trans .ball-stream > span {
+    background-color: rgba(255, 255, 255, 0.95); }
   .loading.trans .ball-bounce > span {
     background-color: rgba(255, 255, 255, 0.95); }
   .loading.trans .rect {
     background-color: rgba(255, 255, 255, 0.95); }
     .loading.trans .rect-series > span {
+      background-color: rgba(255, 255, 255, 0.95); }
+    .loading.trans .rect-stream > span {
       background-color: rgba(255, 255, 255, 0.95); }
 
 /* circle */
@@ -108,25 +154,53 @@
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
+/* ball-stream */
+@-webkit-keyframes ballstream {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+@keyframes ballstream {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
 /* ball-bounce */
 @-webkit-keyframes ballBounce {
-  0%,
-  80%,
-  100% {
-    -webkit-transform: scale(0);
-            transform: scale(0); }
-  40% {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(0, 0, 0) scale(1); }
+  25% {
+    -webkit-transform: translateX(22.5px) scale(1.2);
+            transform: translateX(22.5px) scale(1.2); }
+  50% {
+    -webkit-transform: translateX(22.5px) translateY(22.5px) scale(1);
+            transform: translateX(22.5px) translateY(22.5px) scale(1); }
+  75% {
+    -webkit-transform: translateX(0) translateY(22.5px) scale(1.2);
+            transform: translateX(0) translateY(22.5px) scale(1.2); } }
 @keyframes ballBounce {
-  0%,
-  80%,
-  100% {
-    -webkit-transform: scale(0);
-            transform: scale(0); }
-  40% {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(0, 0, 0) scale(1); }
+  25% {
+    -webkit-transform: translateX(22.5px) scale(1.2);
+            transform: translateX(22.5px) scale(1.2); }
+  50% {
+    -webkit-transform: translateX(22.5px) translateY(22.5px) scale(1);
+            transform: translateX(22.5px) translateY(22.5px) scale(1); }
+  75% {
+    -webkit-transform: translateX(0) translateY(22.5px) scale(1.2);
+            transform: translateX(0) translateY(22.5px) scale(1.2); } }
 
 /* rect */
 @-webkit-keyframes rectRotate {
@@ -169,6 +243,22 @@
   20% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1); } }
+
+/* rect-stream */
+@-webkit-keyframes rectStream {
+  0%,
+  90%,
+  100% {
+    opacity: 0.2; }
+  40% {
+    opacity: 1; } }
+@keyframes rectStream {
+  0%,
+  90%,
+  100% {
+    opacity: 0.2; }
+  40% {
+    opacity: 1; } }
 
 /* circle-fadeout */
 @-webkit-keyframes circleFadeout {

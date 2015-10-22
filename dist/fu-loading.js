@@ -7,7 +7,7 @@
 //
 //  Include: LoadingItem
 //
-//  Theme: Circle(&, &Bounce, &Zoomfade) Rect(&Series) Square
+//  Theme: Circle(&, &-Fadeout, &-Zoomfade) Ball(&-Steam, &-Bounce) Rect(&, &-Series, &-Stream)
 //
 //  Description: Jsx for Loading
 //
@@ -89,9 +89,35 @@ LoadingItem.CircleZoomfade = (function (_React$Component3) {
   return ItemClass;
 })(React.Component);
 
-/* LoadingItem.BallBounce */
-LoadingItem.BallBounce = (function (_React$Component4) {
+/* LoadingItem.Ballstream */
+LoadingItem.Ballstream = (function (_React$Component4) {
   _inherits(ItemClass, _React$Component4);
+
+  function ItemClass() {
+    _classCallCheck(this, ItemClass);
+
+    _get(Object.getPrototypeOf(ItemClass.prototype), "constructor", this).call(this);
+  }
+
+  _createClass(ItemClass, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        { className: "spinner ball-stream" },
+        React.createElement("span", { className: "item-0" }),
+        React.createElement("span", { className: "item-1" }),
+        React.createElement("span", { className: "item-2" })
+      );
+    }
+  }]);
+
+  return ItemClass;
+})(React.Component);
+
+/* LoadingItem.BallBounce */
+LoadingItem.BallBounce = (function (_React$Component5) {
+  _inherits(ItemClass, _React$Component5);
 
   function ItemClass() {
     _classCallCheck(this, ItemClass);
@@ -107,7 +133,8 @@ LoadingItem.BallBounce = (function (_React$Component4) {
         { className: "spinner ball-bounce" },
         React.createElement("span", { className: "item-0" }),
         React.createElement("span", { className: "item-1" }),
-        React.createElement("span", { className: "item-2" })
+        React.createElement("span", { className: "item-2" }),
+        React.createElement("span", { className: "item-3" })
       );
     }
   }]);
@@ -116,8 +143,8 @@ LoadingItem.BallBounce = (function (_React$Component4) {
 })(React.Component);
 
 /* LoadingItem.Rect */
-LoadingItem.Rect = (function (_React$Component5) {
-  _inherits(ItemClass, _React$Component5);
+LoadingItem.Rect = (function (_React$Component6) {
+  _inherits(ItemClass, _React$Component6);
 
   function ItemClass() {
     _classCallCheck(this, ItemClass);
@@ -136,8 +163,8 @@ LoadingItem.Rect = (function (_React$Component5) {
 })(React.Component);
 
 /* LoadingItem.RectSeries */
-LoadingItem.RectSeries = (function (_React$Component6) {
-  _inherits(ItemClass, _React$Component6);
+LoadingItem.RectSeries = (function (_React$Component7) {
+  _inherits(ItemClass, _React$Component7);
 
   function ItemClass() {
     _classCallCheck(this, ItemClass);
@@ -163,9 +190,35 @@ LoadingItem.RectSeries = (function (_React$Component6) {
   return ItemClass;
 })(React.Component);
 
+/* LoadingItem.RectSeries */
+LoadingItem.Rectstream = (function (_React$Component8) {
+  _inherits(ItemClass, _React$Component8);
+
+  function ItemClass() {
+    _classCallCheck(this, ItemClass);
+
+    _get(Object.getPrototypeOf(ItemClass.prototype), "constructor", this).call(this);
+  }
+
+  _createClass(ItemClass, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        { className: "spinner rect-stream" },
+        React.createElement("span", { className: "item-0" }),
+        React.createElement("span", { className: "item-1" }),
+        React.createElement("span", { className: "item-2" })
+      );
+    }
+  }]);
+
+  return ItemClass;
+})(React.Component);
+
 /* LoadingItem.Square */
-LoadingItem.Square = (function (_React$Component7) {
-  _inherits(ItemClass, _React$Component7);
+LoadingItem.Square = (function (_React$Component9) {
+  _inherits(ItemClass, _React$Component9);
 
   function ItemClass() {
     _classCallCheck(this, ItemClass);
@@ -198,8 +251,8 @@ LoadingItem.Square = (function (_React$Component7) {
 
 /* Loading */
 
-var Loading = (function (_React$Component8) {
-  _inherits(Loading, _React$Component8);
+var Loading = (function (_React$Component10) {
+  _inherits(Loading, _React$Component10);
 
   function Loading() {
     _classCallCheck(this, Loading);
@@ -225,6 +278,9 @@ var Loading = (function (_React$Component8) {
         case 'circle-zoomfade':
           loadingItem = React.createElement(LoadingItem.CircleZoomfade, null);
           break;
+        case 'ball-stream':
+          loadingItem = React.createElement(LoadingItem.Ballstream, null);
+          break;
         case 'ball-bounce':
           loadingItem = React.createElement(LoadingItem.BallBounce, null);
           break;
@@ -233,6 +289,9 @@ var Loading = (function (_React$Component8) {
           break;
         case 'rect-series':
           loadingItem = React.createElement(LoadingItem.RectSeries, null);
+          break;
+        case 'rect-stream':
+          loadingItem = React.createElement(LoadingItem.Rectstream, null);
           break;
         default:
           loadingItem = React.createElement(LoadingItem.Circle, null);

@@ -7,7 +7,7 @@
 //
 //  Include: LoadingItem
 //
-//  Theme: Circle(&, &Bounce, &Zoomfade) Rect(&Series) Square
+//  Theme: Circle(&, &-Fadeout, &-Zoomfade) Ball(&-Steam, &-Bounce) Rect(&, &-Series, &-Stream)
 //
 //  Description: Jsx for Loading
 //
@@ -55,6 +55,22 @@ LoadingItem.CircleZoomfade = class ItemClass extends React.Component {
   }
 };
 
+/* LoadingItem.Ballstream */
+LoadingItem.Ballstream = class ItemClass extends React.Component {
+  constructor() {
+    super();
+  }
+  render() {
+    return (
+      <div className="spinner ball-stream">
+        <span className="item-0"></span>
+        <span className="item-1"></span>
+        <span className="item-2"></span>
+      </div>
+    );
+  }
+};
+
 /* LoadingItem.BallBounce */
 LoadingItem.BallBounce = class ItemClass extends React.Component {
   constructor() {
@@ -66,6 +82,7 @@ LoadingItem.BallBounce = class ItemClass extends React.Component {
         <span className="item-0"></span>
         <span className="item-1"></span>
         <span className="item-2"></span>
+        <span className="item-3"></span>
       </div>
     );
   }
@@ -96,6 +113,22 @@ LoadingItem.RectSeries = class ItemClass extends React.Component {
         <span className="item-2"></span>
         <span className="item-3"></span>
         <span className="item-4"></span>
+      </div>
+    );
+  }
+};
+
+/* LoadingItem.RectSeries */
+LoadingItem.Rectstream = class ItemClass extends React.Component {
+  constructor() {
+    super();
+  }
+  render() {
+    return (
+      <div className="spinner rect-stream">
+        <span className="item-0"></span>
+        <span className="item-1"></span>
+        <span className="item-2"></span>
       </div>
     );
   }
@@ -137,6 +170,9 @@ class Loading extends React.Component {
       case 'circle-zoomfade':
         loadingItem = <LoadingItem.CircleZoomfade />;
         break;
+      case 'ball-stream':
+        loadingItem = <LoadingItem.Ballstream />;
+        break;
       case 'ball-bounce':
         loadingItem = <LoadingItem.BallBounce />;
         break;
@@ -145,6 +181,9 @@ class Loading extends React.Component {
         break;
       case 'rect-series':
         loadingItem = <LoadingItem.RectSeries />;
+        break;
+      case 'rect-stream':
+        loadingItem = <LoadingItem.Rectstream />;
         break;
       default:
         loadingItem = <LoadingItem.Circle />;

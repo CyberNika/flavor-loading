@@ -3,7 +3,7 @@
 //
 //  State: trans
 //
-//  Spinner: circle(&, &-bounce, &-zoomfade) rect(&-series) Square
+//  Spinner: circle(&, &-fadeout, &-zoomfade) ball(&-steam, &-bounce) rect(&, &-series, &-stream)
 //
 //  Description: Style for Loading
 //
@@ -11,8 +11,13 @@
 //  ==================================================
 
 $globalTeal: #1bbc9b;
+$globalLake: #09C4C7;
+$globalRose: #E36F76;
+$globalOrange: #FB8E14;
+
 $loadingSpinnerHeight: 60px;
 $spinnerColor: $globalTeal;
+$transColor: rgba(#FFF, .95);
 
 .loading {
   display: inline-block;
@@ -26,7 +31,7 @@ $spinnerColor: $globalTeal;
   }
 
   .circle {  // circle
-    border: 5px solid $spinnerColor;
+    border: 6px solid $spinnerColor;
     border-right-color: transparent;
     border-radius: 50%;
     animation: circleWhirl 1.4s infinite linear;
@@ -57,7 +62,7 @@ $spinnerColor: $globalTeal;
   }
 
   .ball {  // ball
-    &-bounce {  // circle-bounce
+    &-stream {  // ball-stream
       & > span {
         display: inline-block;
         margin: $loadingSpinnerHeight / 3 + 3 3px;
@@ -65,12 +70,39 @@ $spinnerColor: $globalTeal;
         height: $loadingSpinnerHeight / 3 - 6;
         border-radius: 50%;
         background-color: $spinnerColor;
-        animation: ballBounce 1.4s infinite ease-in-out;
+        animation: ballstream 1.4s infinite ease-in-out;
       }
       @for $i from 0 to 3 {
         .item-#{$i} {
           animation-delay: (2 - $i) * -0.16s;
         }
+      }
+    }
+
+    &-bounce {  //ball-bounce
+      & > span {
+        position: absolute;
+        top: $loadingSpinnerHeight * 3 / 16;
+        left: $loadingSpinnerHeight * 3 / 16;
+        width: $loadingSpinnerHeight / 4;
+        height: $loadingSpinnerHeight / 4;
+        border-radius: 50%;
+        animation: ballBounce 1.6s infinite ease-in-out;
+      }
+      & > .item-0 {
+        background-color: $globalTeal;
+      }
+      & > .item-1 {
+        background-color: $globalRose;
+        animation-delay: -0.4s;
+      }
+      & > .item-2 {
+        background-color: $globalLake;
+        animation-delay: -0.8s;
+      }
+      & > .item-3 {
+        background-color: $globalOrange;
+        animation-delay: -1.2s;
       }
     }
   }
@@ -94,9 +126,25 @@ $spinnerColor: $globalTeal;
         }
       }
     }
+
+    &-stream {  // rect-stream
+      padding: 34% 0;
+      & > span {
+        display: inline-block;
+        margin: 0 4px;
+        height: 100%;
+        width: 8px;
+        background-color: $spinnerColor;
+        animation: rectStream 1.4s infinite ease-in-out;
+      }
+      @for $i from 0 to 3 {
+        .item-#{$i} {
+          animation-delay: (3 - $i) * -0.3s;
+        }
+      }
+    }
   }
 
-  $transColor: rgba(#FFF, .95);
   &.trans {  // transparent
     .circle {  // circle
       border-color: rgba(255, 255, 255, 0.2);
@@ -114,17 +162,30 @@ $spinnerColor: $globalTeal;
     }
 
     .ball{  //ball
-      &-bounce {  // circle-bounce
+      &-stream {  // ball-stream
         & > span {
           background-color: $transColor;
         }
       }
+
+      &-bounce {  // ball-bounce
+        & > span {
+          background-color: $transColor;
+        }
+      }
+
     }
 
     .rect {  // rect
       background-color: $transColor;
 
       &-series {  //rect-series
+        & > span {
+          background-color: $transColor;
+        }
+      }
+
+      &-stream {  //rect-stream
         & > span {
           background-color: $transColor;
         }
@@ -143,8 +204,8 @@ $spinnerColor: $globalTeal;
   }
 }
 
-/* ball-bounce */
-@keyframes ballBounce {
+/* ball-stream */
+@keyframes ballstream {
   0%,
   80%,
   100% {
@@ -152,6 +213,22 @@ $spinnerColor: $globalTeal;
   }
   40% {
     transform: scale(1);
+  }
+}
+
+/* ball-bounce */
+@keyframes ballBounce {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translateX($loadingSpinnerHeight * 3 / 8) scale(1.2);
+  }
+  50% {
+    transform: translateX($loadingSpinnerHeight * 3 / 8) translateY($loadingSpinnerHeight * 3 / 8) scale(1);
+  }
+  75% {
+    transform: translateX(0) translateY($loadingSpinnerHeight * 3 / 8)  scale(1.2);
   }
 }
 
@@ -177,6 +254,18 @@ $spinnerColor: $globalTeal;
   }
   20% {
     transform: scaleY(1);
+  }
+}
+
+/* rect-stream */
+@keyframes rectStream {
+  0%,
+  90%,
+  100% {
+    opacity: 0.2
+  }
+  40% {
+    opacity: 1;
   }
 }
 

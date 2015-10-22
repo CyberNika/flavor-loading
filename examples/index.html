@@ -17,9 +17,11 @@
     <div id="circle"></div>
     <div id="circle-fadeout"></div>
     <div id="circle-zoomfade"></div>
+    <div id="ball-stream"></div>
     <div id="ball-bounce"></div>
     <div id="rect"></div>
     <div id="rect-series"></div>
+    <div id="rect-stream"></div>
 
     <script src="./vendor/JSXTransformer.js"></script>
     <script src="./vendor/react.js"></script>
@@ -40,6 +42,10 @@
         document.getElementById('circle-zoomfade')
       );
       ReactDOM.render(
+        <Loading theme="ball-stream" />,
+        document.getElementById('ball-stream')
+      );
+      ReactDOM.render(
         <Loading theme="ball-bounce" />,
         document.getElementById('ball-bounce')
       );
@@ -50,6 +56,10 @@
       ReactDOM.render(
         <Loading theme="rect-series" />,
         document.getElementById('rect-series')
+      );
+      ReactDOM.render(
+        <Loading theme="rect-stream" />,
+        document.getElementById('rect-stream')
       );
     </script>
   </body>
