@@ -5,7 +5,7 @@
     <title>Loading Example</title>
     <style>
       body {
-        background-color: #1BBC9B;
+        /*background-color: #1BBC9B;*/
       }
       div {
         margin: 5px 0;
@@ -30,35 +30,35 @@
 
     <script type="text/jsx">
       ReactDOM.render(
-        <Loading theme="circle" />,
+        <Loading theme="circle" transparent={false}/>,
         document.getElementById('circle')
       );
       ReactDOM.render(
-        <Loading theme="circle-fadeout" />,
+        <Loading theme="circle-fadeout" transparent={false}/>,
         document.getElementById('circle-fadeout')
       );
       ReactDOM.render(
-        <Loading theme="circle-zoomfade" />,
+        <Loading theme="circle-zoomfade" transparent={false}/>,
         document.getElementById('circle-zoomfade')
       );
       ReactDOM.render(
-        <Loading theme="ball-stream" />,
+        <Loading theme="ball-stream" transparent={false}/>,
         document.getElementById('ball-stream')
       );
       ReactDOM.render(
-        <Loading theme="ball-bounce" />,
+        <Loading theme="ball-bounce" transparent={false}/>,
         document.getElementById('ball-bounce')
       );
       ReactDOM.render(
-        <Loading theme="rect" />,
+        <Loading theme="rect" transparent={false}/>,
         document.getElementById('rect')
       );
       ReactDOM.render(
-        <Loading theme="rect-series" />,
+        <Loading theme="rect-series" transparent={false}/>,
         document.getElementById('rect-series')
       );
       ReactDOM.render(
-        <Loading theme="rect-stream" />,
+        <Loading theme="rect-stream" transparent={false}/>,
         document.getElementById('rect-stream')
       );
     </script>
