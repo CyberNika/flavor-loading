@@ -7,8 +7,8 @@
     "test": "test"
   },
   "repository": {
-    "type": "",
-    "url": ""
+    "type": "git",
+    "url": "git@github.com:PuYart/fu-loading.git"
   },
   "keywords": [
     "loading"
