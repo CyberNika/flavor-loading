@@ -38,6 +38,9 @@ Add more themes and LoadingGroup component.
   - `false`  nontransparent/colored
 
 ### Examples
+
+[Examples](./examples/index.html)
+
 ```
 <!-- container -->
 <div id="circle"></div>
